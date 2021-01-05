@@ -47,7 +47,7 @@ end
             "city": Faker::Address.city,
             "state": Faker::Address.state
         },
-        user_id: rand(1..15),
-        card_id:rand(1..15)
+        user_id: rand(1..8),
+        card_id:rand(1..8)
     )
 end

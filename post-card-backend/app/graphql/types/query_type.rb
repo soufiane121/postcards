@@ -3,9 +3,12 @@ module Types
     # type [UserType], null: false
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
+    field :search_user, UserType, null: false do
+      argument :id, Integer, required: true
+    end
 
-    field :users, [Types::UserType], null: false do
-      description "all users with all prop"
+    field :users, [UserType], null: false do
+      argument :secret, String, required: true
     end
 
     field :cards, [Types::CardType], null: false do
@@ -20,8 +23,17 @@ module Types
     #    argument :id, Integer, require: true
     # end
 
-    def users
-      return User.all
+    def search_user(id:)
+      # debugger
+     user= User.find_by(id: id)
+     user
+    end
+    def users(secret:)
+      if secret == "123"
+        return User.all
+      else 
+        raise IOError.new "not allowed"
+      end
     end
     def cards
       return Card.all

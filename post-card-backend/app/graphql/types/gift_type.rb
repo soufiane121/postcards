@@ -7,6 +7,8 @@ module Types
     field :receiver_address, GraphQL::Types::JSON, null: false
     field :user_id, Integer, null: false
     field :card_id, Integer, null: false
+    field :users, [UserType], null: false
+    field :cards, [CardType], null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end

@@ -1,14 +1,11 @@
+require "jwt"
+require "bcrypt"
+
 module Types
   class QueryType < Types::BaseObject
-    # type [UserType], null: false
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    
     field :search_user, UserType, null: false do
       argument :id, Integer, required: true
-    end
-
-    field :users, [UserType], null: false do
-      argument :secret, String, required: true
     end
 
     field :cards, [Types::CardType], null: false do
@@ -18,34 +15,45 @@ module Types
     field :gifts, [Types::GiftType], null: false do
       description "all gifts with all prop"
     end
-    # field :find_user, [Types::UserType], null: false do
-    #   #  description "find specific user with id"
-    #    argument :id, Integer, require: true
-    # end
+
+    field :auto_login, UserType, null: false do
+      argument :token, String, required: true
+      description "for auto login you must provide valid token "
+    end
+
+    # "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvdWR4bm5maWRzM29rc2Y0QGxvbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiJ9.myoQAv9CM1jcAlupmbB1CeB4d3Gu1GRjsAZd5copBCs"
 
     def search_user(id:)
-      # debugger
-     user= User.find_by(id: id)
-     user
+      user = User.find_by(id: id)
+      user
     end
-    def users(secret:)
-      if secret == "123"
-        return User.all
-      else 
-        raise IOError.new "not allowed"
-      end
-    end
+
     def cards
       return Card.all
     end
+
     def gifts
       return Gift.all
     end
 
-    # def find_user(id:)
-    #   return user = User.find_by(id: id)
-    # end
+    def auto_login(token:)
+      decoded = decoded_token(token)
+      @user = User.find_by(email: decoded[0]["email"])
+      if @user && @user.password == decoded[0]["password"]
+        @user
+      else
+        raise IOError.new(@user.errors.full_messages("you are not allowed"))
+      end
+    end
 
+    private
 
+    def decoded_token(token)
+      begin
+        answer = JWT.decode(token, Rails.application.credentials[:secret_key_base])
+      rescue
+        nil
+      end
+    end
   end
 end

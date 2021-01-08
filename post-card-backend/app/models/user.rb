@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def password
     self.password_digest ||= Password.new(password_digest)
   end
+
+  
+
+
 end

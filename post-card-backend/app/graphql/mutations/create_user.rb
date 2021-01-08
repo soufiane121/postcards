@@ -20,6 +20,7 @@ module Mutations
       user.password = arg[:password]
       if user.save
         token = encode_token(user.email, user.password_digest)
+        UserMailer.welcome_email.deliver_now
         { user: user, token: token }
       else
         raise IOError.new(user.errors.full_messages)

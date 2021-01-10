@@ -1,0 +1,55 @@
+@import "./variables";
+
+@mixin auth {
+	margin-left: 2vw;
+	margin-right: 2vw;
+	color: $white;
+	cursor: pointer;
+}
+
+.nav-bar-container {
+	background-color: $blue;
+	display: flex;
+	height: 6vh;
+	align-items: center;
+	.nav-ul {
+		display: flex;
+		justify-content: space-between;
+		// border: orangered 2px solid;
+		width: calc(100vw - 20vw);
+		margin-left: 30vw;
+
+		.nav-li {
+			list-style: none;
+			cursor: pointer;
+			justify-content: space-between;
+			color: $white;
+		}
+		.nav-li:nth-child(1) {
+			margin-left: 13vw;
+		}
+		.nav-li:nth-child(4) {
+			margin-right: 4vw;
+		}
+	}
+}
+.icon {
+	font-size: 4vw;
+}
+
+.login,
+.icon {
+	@include auth;
+}
+
+.signup {
+	@include auth;
+	border: $white 2px solid;
+	padding: 0.7vh 1.5vw;
+	border-radius: 2vh;
+}
+.signup:hover {
+	// @include auth;
+    background-color: $pink;
+    color: $blue;
+}

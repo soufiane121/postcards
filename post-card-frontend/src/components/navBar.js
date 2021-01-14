@@ -23,6 +23,9 @@ const NavBar = () => {
 			<nav className="nav-bar-container">
 				<span className="logo">Logo</span>
 				<ul className={open ? "nav-ul" : "nav-ul active"}>
+					<form onSubmit={() => console.log("===================")}>
+						<input className="inpt2" placeholder="Search cards" />
+					</form>
 					<Link to="/main" className="nav-li">
 						<li>Home</li>
 					</Link>
@@ -46,7 +49,7 @@ const NavBar = () => {
 					<span className="line border3"></span>
 				</div>
 			</nav>
-			<div className="search-cont">
+			<form>
 				<input
 					className={openSerch ? "inpt active" : "inpt"}
 					placeholder="Search cards"
@@ -55,7 +58,7 @@ const NavBar = () => {
 					className={openSerch ? "close-icon active" : "close-icon"}
 					onClick={handleSearchInpt}
 				/>
-			</div>
+			</form>
 		</>
 	);
 };

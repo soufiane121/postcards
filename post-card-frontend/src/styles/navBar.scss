@@ -54,13 +54,16 @@ $base-transition: all 0.3s;
 		.nav-li:nth-child(1) {
 			margin-left: 13vw;
 		}
-		.nav-li:nth-child(4) {
+		.nav-li:nth-child(5) {
 			margin-right: 4vw;
+		}
+		.nav-li:hover {
+			color: $yellow;
 		}
 	}
 }
 .icon {
-	font-size: clamp(5vw, 4vh, 5.5vw)
+	font-size: clamp(5vw, 4vh, 5.5vw);
 }
 
 .login,
@@ -93,10 +96,8 @@ $base-transition: all 0.3s;
 	// z-index: 1;
 	font-size: 1.1rem;
 	position: relative;
-    margin-right: -40vw;
-    transition: ease-out 0.6s;
-
-    
+	margin-right: -40vw;
+	transition: ease-out 0.6s;
 }
 
 .close-icon {
@@ -107,20 +108,23 @@ $base-transition: all 0.3s;
 	position: relative;
 	// margin-right: 2.3vw;
 	// font-weight: 500;
-    margin-right: -40vw;
-    cursor: pointer;
-    transition: ease-out 0.6s;
-
-
+	margin-right: -40vw;
+	cursor: pointer;
+	transition: ease-out 0.6s;
 }
 
-.inpt.active, .close-icon.active{
-    margin-right: 1.8vw;
-    transition: ease-in 0.6s;
+.inpt.active,
+.close-icon.active {
+	margin-right: 1.8vw;
+	transition: ease-in 0.6s;
 }
 
 body {
 	overflow: hidden !important;
+}
+
+.inpt2 {
+	display: none;
 }
 
 @media only screen and (max-width: 830px) {
@@ -189,12 +193,9 @@ body {
 			height: 89vh;
 			margin-top: 95vh;
 			margin-left: calc(100vw - 0vw);
-			// float: right;
-			// margin-right: -8.7%;
-            max-width: 45vw !important;
-            transition: ease-out 0.7s;
-            overflow: hidden;
-            
+			max-width: 45vw !important;
+			transition: ease-out 0.7s;
+			overflow: hidden;
 
 			.nav-li:nth-child(1) {
 				margin-left: 0 !important;
@@ -207,9 +208,24 @@ body {
 		.nav-ul.active {
 			margin-left: calc(100vw - 45vw);
 			transition: ease-in-out 0.7s;
+			z-index: 100;
 		}
 	}
-
-
+	.inpt2 {
+		display: table;
+		width: 36vw;
+		height: 5.5vh;
+		background-color: $pink;
+		border: 1px solid $white;
+		border-radius: 0.7vw;
+		font-size: 1.1rem;
+		padding: 1vw;
+		// float: right;
+		// margin-top: -6vh;
+		// margin-right: 2vw;
+		// z-index: 1;
+		// position: relative;
+		// margin-right: -40vw;
+		// transition: ease-out 0.6s;
+	}
 }
-

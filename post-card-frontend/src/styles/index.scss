@@ -1,0 +1,21 @@
+@import "./variables";
+
+* {
+margin: 0%;
+padding: 0%;
+box-sizing: border-box;
+}
+
+body {
+  background-color: $white !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: "cremona";
+  src: url("../assets//fonts/Cremona.ttf");
+}

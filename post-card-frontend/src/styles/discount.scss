@@ -1,0 +1,16 @@
+@import "./variables";
+.announcement {
+	background-color: $pink;
+	height: 5.8vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.text {
+		font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        text-transform: uppercase;
+        font-family: "cremona";
+		font-weight: 300;
+		color: $black;
+	}
+}

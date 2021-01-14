@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.string :email
       t.string :password_digest
-      t.jsonb :address
+      # t.jsonb :address
       t.string :gender
       t.date :age
       t.string :img

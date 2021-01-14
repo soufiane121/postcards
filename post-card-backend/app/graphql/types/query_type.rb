@@ -3,7 +3,6 @@ require "bcrypt"
 
 module Types
   class QueryType < Types::BaseObject
-    
     field :search_user, UserType, null: false do
       argument :id, Integer, required: true
     end
@@ -40,17 +39,24 @@ module Types
       decoded = decoded_token(token)
       @user = User.find_by(email: decoded[0]["email"])
       if @user && @user.password == decoded[0]["password"]
+        # answer = SendEmailJob.perform_later("lol")
+        # UserMailer.welcome_email.deliver_now
+        # p "=================================#{answer}"
         @user
       else
         raise IOError.new(@user.errors.full_messages("you are not allowed"))
       end
     end
 
+    
+
+
     private
 
     def decoded_token(token)
       begin
         answer = JWT.decode(token, Rails.application.credentials[:secret_key_base])
+        byebug
       rescue
         nil
       end

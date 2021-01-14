@@ -1,0 +1,96 @@
+@import "./variables";
+
+@mixin button_layer {
+	background-color: $purpule;
+	display: block;
+	width: 20vw;
+	height: 7vh;
+	text-align: center;
+}
+.page_hero__content {
+	height: 70vh;
+	max-width: 100vw;
+	display: flex;
+	flex-direction: row;
+	background-color: $paige;
+
+	.image {
+		max-width: 40vw;
+		height: 50vh;
+		position: relative;
+		margin: 6vh 2vw;
+	}
+}
+
+.text-button-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.txt-descrption {
+		color: $darkPur2;
+		font-size: 2.3rem;
+		margin-top: 17vh;
+		line-height: 6.9vh;
+	}
+
+	.btn-container {
+		@include button_layer;
+		margin-top: 3vh;
+		padding: 2vh;
+		border: $darkPur 1.5px solid;
+		position: relative;
+		cursor: pointer;
+
+		.button {
+			color: $darkPur2;
+			font-size: 19px;
+			list-style: none;
+			text-decoration: none;
+		}
+	}
+
+	.backdround-text2 {
+		@include button_layer;
+		background-color: $lightPur;
+		margin-left: 2vw;
+		margin-top: -6vh;
+		// position: relative;
+		// z-index: 30;
+	}
+
+	.btn-container:hover {
+		background-color: $darkPur2;
+		.button {
+			color: $white;
+		}
+
+		+ .backdround-text2 {
+			margin-left: 0.5vw !important;
+			margin-top: -6.5vh !important;
+			transition: ease-out 0.3s;
+		}
+	}
+}
+
+@media screen and (max-width: 716px) {
+	.page_hero__content {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+	.text-button-container {
+		border: orangered 2px solid;
+        max-width: 80vh;
+        height: 40vh;
+        display: flex;
+        .txt-descrption{
+            font-size: 4vw;
+            margin-top: 0vh;
+        }
+	}
+
+	.image {
+		margin-top: 40vh;
+	}
+}

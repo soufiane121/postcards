@@ -17,6 +17,8 @@ module Mutations
       end
     end
 
+    
+
     private
 
     def encode_token(email, password)

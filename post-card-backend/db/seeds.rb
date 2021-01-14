@@ -13,13 +13,13 @@
         first_name: Faker::Name.name,
         last_name: Faker::FunnyName.unique.name,
         email: Faker::Internet.email,
-        address:{
-            "street1": Faker::Address.street_address,
-            "street2": Faker::Address.secondary_address,
-            "zip_code": Faker::Address.zip_code,
-            "city": Faker::Address.city,
-            "state": Faker::Address.state
-        },
+        # address:{
+        #     "street1": Faker::Address.street_address,
+        #     "street2": Faker::Address.secondary_address,
+        #     "zip_code": Faker::Address.zip_code,
+        #     "city": Faker::Address.city,
+        #     "state": Faker::Address.state
+        # },
         gender: Faker::Gender.binary_type,
         age: Date.new(2021,1,10),
         img: Faker::Avatar.image(slug: "sport", size: "50x50", format: "jpg"),

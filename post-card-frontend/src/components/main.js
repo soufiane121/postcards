@@ -82,7 +82,7 @@ const Main = () => {
 		return cards.map((ele, idx) => {
 			return (
 				<div className={idx % 2 ===0 ? "service-card-right" : "service-card-left"}>
-					<img src={ele.link} className={idx % 2 == 0 ? "srv-image2": "srv-image"} />
+					<img src={ele.link} className={idx % 2 === 0 ? "srv-image2": "srv-image"} />
 					<div className={idx % 2 === 0 ? "title-desc-cont2" : "title-desc-cont"}>
 						<h5 className={idx % 2 === 0 ? "srv-title2" : "srv-title"}>{ele.title}</h5>
 						<p className={idx % 2 === 0 ? "srv-desc2" : "srv-desc"}>{ele.descrption}</p>

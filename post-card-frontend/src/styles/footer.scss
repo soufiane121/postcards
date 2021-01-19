@@ -1,0 +1,42 @@
+@import "./variables";
+
+.footer-container {
+	height: 20vh;
+	// border: bisque 2px solid;
+	background-color: $blue;
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.icons-sec {
+	background-color: transparent;
+	height: 8vh;
+	width: 30vw;
+	display: inherit;
+	justify-content: space-between;
+
+	.icon-soc {
+		font-size: 34px;
+		color: $white;
+		cursor: pointer;
+    }
+    
+}
+
+.footer-desc {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50vw;
+    justify-content: center;
+	justify-content: space-around;
+
+    .link {
+        color: $paige;
+        text-decoration: none;
+        list-style: none;
+    }
+
+}

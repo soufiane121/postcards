@@ -120,7 +120,7 @@ $base-transition: all 0.3s;
 }
 
 body {
-	overflow: hidden !important;
+	overflow-x: hidden;
 }
 
 .inpt2 {
@@ -208,7 +208,7 @@ body {
 		.nav-ul.active {
 			margin-left: calc(100vw - 45vw);
 			transition: ease-in-out 0.7s;
-			z-index: 100;
+			z-index: 1;
 		}
 	}
 	.inpt2 {

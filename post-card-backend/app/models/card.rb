@@ -25,7 +25,7 @@ class Card < ApplicationRecord
 
   private
   def getting_all_cards(url)
-    byebug
+    # add logic here to re fetch data and 
   end
 
 end
